@@ -47,9 +47,9 @@ class Capacity extends Component {
 const readOutStyle = {
   position: 'absolute',
   left: '50%',
-  marginLeft: '-80px',
+  marginLeft: '-8vw',
   top: '20%',
-  fontSize: 80,
+  fontSize: '8vw',
   textAlign: 'center'
 }
 

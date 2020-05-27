@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BarGraph from './components/charts/BarGraph';
 import Capacity from './components/charts/Capacity';
 import Header from './components/layout/Header';
+import Menu from './components/navigation/MenuBar';
 import './App.css';
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
     // Ajax call here
     this.setState({
       capacityData: {
-        capacity: 40
+        capacity: 54
       },
       barData: {
         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -53,7 +54,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Header />
+          <Menu />
           <Capacity capacityData={this.state.capacityData}/>
           <BarGraph barData={this.state.barData}/>
       </div>
