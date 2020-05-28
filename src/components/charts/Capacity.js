@@ -1,5 +1,6 @@
 import React from 'react';
 import {Doughnut, Chart} from 'react-chartjs-2';
+import roboto from "typeface-roboto";
 
 const Capacity = (props) => {
   const capacity = props.capacity;
@@ -49,7 +50,7 @@ Chart.helpers.extend(Chart.controllers.doughnut.prototype, {
     var height = chart.height;
 
     var fontSize = (height / 114).toFixed(2);
-    ctx.font = fontSize + "em Verdana";
+    ctx.font = fontSize + "em roboto";
     ctx.textBaseline = "middle";
 
     var text = chart.config.data.text,
