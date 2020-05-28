@@ -3,7 +3,7 @@ import SimpleCard from './Card'
 import {Grid} from '@material-ui/core';
 import GymSelect from './GymSelect';
 import Capacity from './charts/Capacity';
-import BarGraph from './charts/BarGraph'
+import WeekGraph from './charts/WeekGraph'
 import DayGraph from "./charts/DayGraph";
 
 
@@ -30,7 +30,7 @@ const content = (dayNumber, setDayNumber) => (
         <Grid container direction="row">
           <Grid item xs={1} ms={2} lg={3}></Grid>
           <Grid item xs={10} ms={8} lg={6}>
-          <BarGraph barData={barData()} setDayNumber={setDayNumber}/>
+          <WeekGraph barData={barData()} setDayNumber={setDayNumber}/>
           <DayGraph barData={daysData()[dayNumber]} days={days()[dayNumber]}/>
           </Grid>
           <Grid item xs={1} ms={2} lg={3}></Grid>

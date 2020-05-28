@@ -1,6 +1,5 @@
 import React from 'react';
 import {Doughnut, Chart} from 'react-chartjs-2';
-import {Typography} from '@material-ui/core';
 
 const Capacity = (props) => {
   const capacity = props.capacity;

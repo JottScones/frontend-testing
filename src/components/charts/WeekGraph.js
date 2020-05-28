@@ -1,7 +1,7 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
 
-const BarGraph = (props) => {
+const WeekGraph = (props) => {
   return (
     <div className="Bar Chart">
       <Bar
@@ -36,4 +36,4 @@ const BarGraph = (props) => {
   )
 };
 
-export default BarGraph;
+export default WeekGraph;
