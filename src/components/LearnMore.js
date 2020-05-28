@@ -12,10 +12,10 @@ const useStyles = makeStyles(() => ({
     padding: '10px 20px 20px 20px'
   },
   title: {
-    padding: '10px 20px'
+    padding: '20px 20px 10px 20px'
   },
   closeButton: {
-    padding: '10px 10px',
+    padding: '20px',
     right: -1,
     position: 'absolute',
     color: '#333'
