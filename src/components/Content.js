@@ -9,26 +9,29 @@ import BarGraph from './charts/BarGraph'
 const Content = () => (
   <div>
     <Grid container direction="column" spacing={2}>
+      {/*Choose gym selector*/}
       <Grid item><GymSelect /></Grid>
       <Grid item>
-        <SimpleCard title="capacity">
+        {/*Card to hold Capacity*/}
+        <SimpleCard title="Live capacity">
           <Grid container direction="row">
-            <Grid item xs={1} ms={2}></Grid>
-            <Grid item xs={10} ms={2}>
-              <Capacity capacity={23}/>
+            <Grid item xs={1} ms={2} lg={3}></Grid>
+            <Grid item xs={10} ms={8} lg={6}>
+              <Capacity capacity={54}/>
             </Grid>
-            <Grid item xs={1} ms={2}></Grid>
+            <Grid item xs={1} ms={2} lg={6}></Grid>
           </Grid>
         </SimpleCard>
       </Grid>
       <Grid item>
-        <SimpleCard title="bar">
+        {/*Card to hold Bar Graph*/}
+        <SimpleCard title="Weekly view">
         <Grid container direction="row">
-          <Grid item xs={1} ms={2}></Grid>
-          <Grid item xs={10} ms={2}>
+          <Grid item xs={1} ms={2} lg={3}></Grid>
+          <Grid item xs={10} ms={8} lg={6}>
             <BarGraph barData={barData()}/>
           </Grid>
-          <Grid item xs={1} ms={2}></Grid>
+          <Grid item xs={1} ms={2} lg={3}></Grid>
         </Grid>
         </SimpleCard>
       </Grid>

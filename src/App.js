@@ -12,11 +12,11 @@ class App extends Component {
           <Header />
         </Grid>
         <Grid item container>
-          <Grid item xs={false} sm={2} />
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={false} sm={2} lg={3}/>
+          <Grid item xs={12} sm={8} lg={6}>
             <Content />
           </Grid>
-          <Grid item xs={false} sm={2} />
+          <Grid item xs={false} sm={2} lg={3}/>
         </Grid>
       </Grid>
     );

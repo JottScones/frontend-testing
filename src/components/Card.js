@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     minWidth: 275,
   },
   title: {
-    fontSize: 14,
+    fontSize: 24,
   },
   pos: {
     marginBottom: 12,
@@ -24,7 +24,7 @@ const SimpleCard = (props) => {
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={classes.title} color="textPrimary" gutterBottom>
           {props.title}
         </Typography>
       </CardContent>

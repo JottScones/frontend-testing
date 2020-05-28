@@ -1,7 +1,9 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import SpeedIcon from '@material-ui/icons/Speed';
+import MenuIcon from '@material-ui/icons/Menu';
 import {makeStyles} from '@material-ui/styles';
+import lightGreen from '@material-ui/core/colors/lightGreen';
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
@@ -15,7 +17,10 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography className={classes.typographyStyles}>
+        <IconButton edge="start" className={classes.menuButton} color='inherit' aria-label="menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography className={classes.typographyStyles} color='inherit'>
           Occupancy Gym App
         </Typography>
         <SpeedIcon />

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
+import {Typography} from '@material-ui/core';
 
 const Capacity = (props) => {
   const capacity = props.capacity;
@@ -12,8 +13,8 @@ const Capacity = (props) => {
           datasets:[{
             label:'Capacity',
             data:[capacity, 100-capacity],
-            backgroundColor:['green', 'gray'],
-            borderWidth: 0
+            backgroundColor:['#2E8B57', '#ddd'],
+            borderWidth: 1,
           }]
         }}
         options={{
@@ -26,16 +27,17 @@ const Capacity = (props) => {
           tooltip: {
               enabled: false
           },
-          cutoutPercentage: 95
+          cutoutPercentage: 90
         }}
       />
-      <div style={textStyle()}>{capacity+'%'}</div>
+      <Typography style={textStyle()}>{capacity+'%'}</Typography>
     </div>
   )
 };
 
 const textStyle = () => ({
   width: '100%',
+  fontSize: '30px',
   height: '40px',
   position: 'absolute',
   top: '40%',
