@@ -11,7 +11,8 @@ const WeekGraph = (props) => {
           title: {
             display: true,
             text: "Average capacity by day",
-            fontSize: 25
+            fontSize: 25,
+            fontFamily: 'roboto'
           },
           legend: {
             display: false

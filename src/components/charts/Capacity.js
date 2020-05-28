@@ -1,6 +1,6 @@
 import React from 'react';
 import {Doughnut, Chart} from 'react-chartjs-2';
-import roboto from "typeface-roboto";
+import "typeface-roboto";
 
 const Capacity = (props) => {
   const capacity = props.capacity;
