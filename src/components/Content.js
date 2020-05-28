@@ -16,11 +16,11 @@ const content = (dayNumber, setDayNumber) => (
         {/*Card to hold Capacity*/}
         <SimpleCard title="Live capacity">
           <Grid container direction="row">
-            <Grid item xs={1} ms={2} lg={3}></Grid>
-            <Grid item xs={10} ms={8} lg={6}>
+            <Grid item xs={1} ms={2} ></Grid>
+            <Grid item xs={10} ms={8} >
               <Capacity capacity={54}/>
             </Grid>
-            <Grid item xs={1} ms={2} lg={6}></Grid>
+            <Grid item xs={1} ms={2} ></Grid>
           </Grid>
         </SimpleCard>
       </Grid>
@@ -28,12 +28,12 @@ const content = (dayNumber, setDayNumber) => (
         {/*Card to hold Bar Graph*/}
         <SimpleCard title="Weekly view">
         <Grid container direction="row">
-          <Grid item xs={1} ms={2} lg={3}></Grid>
-          <Grid item xs={10} ms={8} lg={6}>
+          <Grid item xs={1} ms={2} ></Grid>
+          <Grid item xs={10} ms={8} >
           <WeekGraph barData={barData()} setDayNumber={setDayNumber}/>
           <DayGraph barData={daysData()[dayNumber]} days={days()[dayNumber]}/>
           </Grid>
-          <Grid item xs={1} ms={2} lg={3}></Grid>
+          <Grid item xs={1} ms={2} ></Grid>
         </Grid>
         </SimpleCard>
       </Grid>
