@@ -14,11 +14,11 @@ const content = (dayNumber, setDayNumber) => (
       <Grid item><GymSelect /></Grid>
       <Grid item>
         {/*Card to hold Capacity*/}
-        <SimpleCard title="Live capacity">
+        <SimpleCard title="Live capacity" content={capacityDescription}>
           <Grid container direction="row">
             <Grid item xs={1} ms={2} ></Grid>
             <Grid item xs={10} ms={8} >
-              <Capacity capacity={89}/>
+              <Capacity capacity={70}/>
             </Grid>
             <Grid item xs={1} ms={2} ></Grid>
           </Grid>
@@ -26,7 +26,7 @@ const content = (dayNumber, setDayNumber) => (
       </Grid>
       <Grid item>
         {/*Card to hold Bar Graph*/}
-        <SimpleCard title="Weekly view">
+        <SimpleCard title="Weekly view" content={barChartDescription}>
         <Grid container direction="row">
           <Grid item xs={1} ms={2} ></Grid>
           <Grid item xs={10} ms={8} >
@@ -157,6 +157,15 @@ const sundayData = () => (
     }]
   }
 );
+
+const capacityDescription =
+  `Shows the live occupancy of the gym as a percentage.
+  It is advised not to go to the gym when the bar is red.
+  This data is sourced from physical counts provided by the gyms.`;
+
+const barChartDescription =
+  `Shows the average occupancy day by day based on historic data.
+  Click on a day to get an hour by hour view of that day.`
 
 const daysData = () => [mondayData(), tuesdayData(), wednesdayData(), thursdayData(), fridayData(), saturdayData(), sundayData()];
 const days = () => ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
