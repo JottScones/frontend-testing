@@ -4,9 +4,10 @@ import {Grid} from '@material-ui/core';
 import GymSelect from './GymSelect';
 import Capacity from './charts/Capacity';
 import BarGraph from './charts/BarGraph'
+import DayGraph from "./charts/DayGraph";
 
 
-const Content = () => (
+const content = (dayNumber, setDayNumber) => (
   <div>
     <Grid container direction="column" spacing={2}>
       <Grid item><GymSelect /></Grid>
@@ -26,7 +27,8 @@ const Content = () => (
         <Grid container direction="row">
           <Grid item xs={1} ms={2}/>
           <Grid item xs={10} ms={2}>
-            <BarGraph barData={barData()} mondayData={mondayData()}/>
+            <BarGraph barData={barData()} setDayNumber={setDayNumber}/>
+            <DayGraph barData={daysData()[dayNumber]} days={days()[dayNumber]}/>
           </Grid>
           <Grid item xs={1} ms={2}/>
         </Grid>
@@ -53,24 +55,110 @@ const barData = () => (
       ]
     }]
   }
-)
+);
 
 const mondayData = () => (
   {
-    labels: ['10', '11', '12', '13'],
+    labels: ['10:00', '11:00', '12:00', '13:00'],
     datasets:[{
-      label:'Monday capacity',
       data: [35, 70, 50],
       backgroundColor:[
         'rgba(255, 98, 132, 0.6)',
         'rgba(54, 162, 235, 0.6)',
-        'rgba(255, 206, 86, 0.6)',
-        'rgba(75, 192, 192, 0.6)',
-        'rgba(153, 102, 255, 0.6)',
-        'rgba(130,255,201,0.6)',
-        'rgba(255, 99, 132, 0.6)'
+        'rgba(255, 206, 86, 0.6)'
       ]
     }]
   }
-)
-export default Content;
+);
+
+const tuesdayData = () => (
+  {
+    labels: ['10:00', '11:00', '12:00', '13:00'],
+    datasets:[{
+      data: [20, 50, 90],
+      backgroundColor:[
+        'rgba(255, 98, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)'
+      ]
+    }]
+  }
+);
+
+const wednesdayData = () => (
+  {
+    labels: ['10:00', '11:00', '12:00', '13:00'],
+    datasets:[{
+      data: [5, 75, 32],
+      backgroundColor:[
+        'rgba(255, 98, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)'
+      ]
+    }]
+  }
+);
+
+const thursdayData = () => (
+  {
+    labels: ['10:00', '11:00', '12:00', '13:00'],
+    datasets:[{
+      data: [12, 35, 62],
+      backgroundColor:[
+        'rgba(255, 98, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)'
+      ]
+    }]
+  }
+);
+
+const fridayData = () => (
+  {
+    labels: ['10:00', '11:00', '12:00', '13:00'],
+    datasets:[{
+      data: [54, 21, 11],
+      backgroundColor:[
+        'rgba(255, 98, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)'
+      ]
+    }]
+  }
+);
+
+const saturdayData = () => (
+  {
+    labels: ['10:00', '11:00', '12:00', '13:00'],
+    datasets:[{
+      data: [65, 32, 73],
+      backgroundColor:[
+        'rgba(255, 98, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)'
+      ]
+    }]
+  }
+);
+
+const sundayData = () => (
+  {
+    labels: ['10:00', '11:00', '12:00', '13:00'],
+    datasets:[{
+      data: [11, 56, 81],
+      backgroundColor:[
+        'rgba(255, 98, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)'
+      ]
+    }]
+  }
+);
+
+const daysData = () => [mondayData(), tuesdayData(), wednesdayData(), thursdayData(), fridayData(), saturdayData(), sundayData()];
+const days = () => ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+export default function Content() {
+  const [dayNumber, setDayNumber] = React.useState("");
+  return content(dayNumber, setDayNumber);
+}

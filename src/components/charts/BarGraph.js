@@ -27,12 +27,12 @@ const BarGraph = (props) => {
         }}
         onElementsClick={(elems) => {
           if (elems[0]) {
-            // let selectedIndex = elems[0]._index;
-            // alert(props.barData.datasets[0].data[selectedIndex]);
-            return <DayGraph barData={props.mondayData}/>
+            let selectedIndex = elems[0]._index;
+            props.setDayNumber(selectedIndex);
           }
         }}
       />
+
     </div>
   )
 };
