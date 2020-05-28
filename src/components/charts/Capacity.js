@@ -1,5 +1,5 @@
 import React from 'react';
-import {Doughnut} from 'react-chartjs-2';
+import {Doughnut, Chart} from 'react-chartjs-2';
 import {Typography} from '@material-ui/core';
 
 const Capacity = (props) => {
@@ -14,8 +14,9 @@ const Capacity = (props) => {
             label:'Capacity',
             data:[capacity, 100-capacity],
             backgroundColor:['#2E8B57', '#ddd'],
-            borderWidth: 1,
-          }]
+            borderWidth: 1
+          }],
+          text: `${capacity}%`
         }}
         options={{
           responsive: true,
@@ -30,22 +31,34 @@ const Capacity = (props) => {
           cutoutPercentage: 90
         }}
       />
-      <Typography style={textStyle()}>{capacity+'%'}</Typography>
     </div>
   )
 };
 
-const textStyle = () => ({
-  width: '100%',
-  fontSize: '30px',
-  height: '40px',
-  position: 'absolute',
-  top: '40%',
-  left: 0,
-  marginTop: '-30px',
-  lineHeight: '19px',
-  textAlign: 'center',
-  zIndex: 999999999999999
-})
+/* This code is from:
+  https://stackoverflow.com/questions/42759306/add-text-inside-doughnut-chart-from-chart-js-2-in-react
+  It adds text attribute to doughnut graphs so we can have centered text
+*/
+var originalDoughnutDraw = Chart.controllers.doughnut.prototype.draw;
+Chart.helpers.extend(Chart.controllers.doughnut.prototype, {
+  draw: function() {
+    originalDoughnutDraw.apply(this, arguments);
+
+    var chart = this.chart.chart;
+    var ctx = chart.ctx;
+    var width = chart.width;
+    var height = chart.height;
+
+    var fontSize = (height / 114).toFixed(2);
+    ctx.font = fontSize + "em Verdana";
+    ctx.textBaseline = "middle";
+
+    var text = chart.config.data.text,
+        textX = Math.round((width - ctx.measureText(text).width) / 2),
+        textY = height / 1.5;
+
+    ctx.fillText(text, textX, textY);
+  }
+});
 
 export default Capacity;
