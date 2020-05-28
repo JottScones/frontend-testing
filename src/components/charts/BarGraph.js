@@ -24,7 +24,14 @@ const BarGraph = (props) => {
             }]
           }
         }}
+        onElementsClick={(elems) => {
+          if (elems[0]) {
+            let selectedIndex = elems[0]._index;
+            props.setDayNumber(selectedIndex);
+          }
+        }}
       />
+
     </div>
   )
 };
