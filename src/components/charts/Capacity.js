@@ -2,6 +2,12 @@ import React from 'react';
 import {Doughnut, Chart} from 'react-chartjs-2';
 import "typeface-roboto";
 
+const colorOfBar = capacity => (
+  capacity < 60 ? '#2E8B57' :
+  capacity < 80 ? '#EB8258' :
+    '#DA627D'
+);
+
 const Capacity = (props) => {
   const capacity = props.capacity;
 
@@ -13,7 +19,8 @@ const Capacity = (props) => {
           datasets:[{
             label:'Capacity',
             data:[capacity, 100-capacity],
-            backgroundColor:['#2E8B57', '#ddd'],
+            /*If capacity is greater than 80 color is red*/
+            backgroundColor:[colorOfBar(capacity), '#ddd'],
             borderWidth: 1
           }],
           text: `${capacity}%`

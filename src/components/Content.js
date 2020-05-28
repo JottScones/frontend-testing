@@ -18,7 +18,7 @@ const content = (dayNumber, setDayNumber) => (
           <Grid container direction="row">
             <Grid item xs={1} ms={2} ></Grid>
             <Grid item xs={10} ms={8} >
-              <Capacity capacity={54}/>
+              <Capacity capacity={89}/>
             </Grid>
             <Grid item xs={1} ms={2} ></Grid>
           </Grid>
