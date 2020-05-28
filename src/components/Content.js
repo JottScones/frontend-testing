@@ -13,22 +13,22 @@ const Content = () => (
       <Grid item>
         <SimpleCard title="capacity">
           <Grid container direction="row">
-            <Grid item xs={1} ms={2}></Grid>
+            <Grid item xs={1} ms={2}/>
             <Grid item xs={10} ms={2}>
               <Capacity capacity={23}/>
             </Grid>
-            <Grid item xs={1} ms={2}></Grid>
+            <Grid item xs={1} ms={2}/>
           </Grid>
         </SimpleCard>
       </Grid>
       <Grid item>
         <SimpleCard title="bar">
         <Grid container direction="row">
-          <Grid item xs={1} ms={2}></Grid>
+          <Grid item xs={1} ms={2}/>
           <Grid item xs={10} ms={2}>
-            <BarGraph barData={barData()}/>
+            <BarGraph barData={barData()} mondayData={mondayData()}/>
           </Grid>
-          <Grid item xs={1} ms={2}></Grid>
+          <Grid item xs={1} ms={2}/>
         </Grid>
         </SimpleCard>
       </Grid>
@@ -41,15 +41,7 @@ const barData = () => (
     labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     datasets:[{
       label:'Av capacity',
-      data:[
-        43,
-        51,
-        62,
-        54,
-        70,
-        73,
-        66
-      ],
+      data:[43, 51, 62, 54, 70, 73, 66],
       backgroundColor:[
         'rgba(255, 98, 132, 0.6)',
         'rgba(54, 162, 235, 0.6)',
@@ -57,6 +49,25 @@ const barData = () => (
         'rgba(75, 192, 192, 0.6)',
         'rgba(153, 102, 255, 0.6)',
         'rgba(255, 159, 64, 0.6)',
+        'rgba(255, 99, 132, 0.6)'
+      ]
+    }]
+  }
+)
+
+const mondayData = () => (
+  {
+    labels: ['10', '11', '12', '13'],
+    datasets:[{
+      label:'Monday capacity',
+      data: [35, 70, 50],
+      backgroundColor:[
+        'rgba(255, 98, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+        'rgba(75, 192, 192, 0.6)',
+        'rgba(153, 102, 255, 0.6)',
+        'rgba(130,255,201,0.6)',
         'rgba(255, 99, 132, 0.6)'
       ]
     }]

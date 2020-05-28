@@ -1,5 +1,6 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2';
+import DayGraph from "./DayGraph";
 
 const BarGraph = (props) => {
   return (
@@ -22,6 +23,13 @@ const BarGraph = (props) => {
                 beginAtZero: true
               }
             }]
+          }
+        }}
+        onElementsClick={(elems) => {
+          if (elems[0]) {
+            // let selectedIndex = elems[0]._index;
+            // alert(props.barData.datasets[0].data[selectedIndex]);
+            return <DayGraph barData={props.mondayData}/>
           }
         }}
       />
