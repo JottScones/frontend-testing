@@ -1,56 +1,49 @@
-import React, { Component } from 'react';
-import { Doughnut } from 'react-chartjs-2';
-import './Chart.css'
+import React from 'react';
+import {Doughnut} from 'react-chartjs-2';
 
-class Capacity extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      capacityData: props.capacityData
-    };
-  }
+const Capacity = (props) => {
+  const capacity = props.capacity;
 
+  return (
+    <div className='Capacity Chart'>
+      <Doughnut
+        data={{
+          labels: ['full', 'empty'],
+          datasets:[{
+            label:'Capacity',
+            data:[capacity, 100-capacity],
+            backgroundColor:['green', 'gray'],
+            borderWidth: 0
+          }]
+        }}
+        options={{
+          responsive: true,
+          rotation: 1 * Math.PI,
+          circumference: 1 * Math.PI,
+          legend: {
+              display: false
+          },
+          tooltip: {
+              enabled: false
+          },
+          cutoutPercentage: 95
+        }}
+      />
+      <div style={textStyle()}>{capacity+'%'}</div>
+    </div>
+  )
+};
 
-  render() {
-    const {capacity} = this.state.capacityData;
-    return (
-      <div className='Capacity Chart'>
-        <Doughnut
-          data={{
-            labels: ['full', 'empty'],
-            datasets:[{
-              label:'Capacity',
-              data:[capacity, 100-capacity],
-              backgroundColor:['green', 'gray'],
-              borderWidth: 0
-            }]
-          }}
-          options={{
-            rotation: 1 * Math.PI,
-            circumference: 1 * Math.PI,
-            legend: {
-                display: false
-            },
-            tooltip: {
-                enabled: false
-            },
-            cutoutPercentage: 95
-          }}
-        />
-        <h2 style={readOutStyle}>{capacity+'%'}</h2>
-      </div>
-    );
-  }
-
-}
-
-const readOutStyle = {
+const textStyle = () => ({
+  width: '100%',
+  height: '40px',
   position: 'absolute',
-  left: '50%',
-  marginLeft: '-8vw',
-  top: '20%',
-  fontSize: '8vw',
-  textAlign: 'center'
-}
+  top: '40%',
+  left: 0,
+  marginTop: '-30px',
+  lineHeight: '19px',
+  textAlign: 'center',
+  zIndex: 999999999999999
+})
 
 export default Capacity;
