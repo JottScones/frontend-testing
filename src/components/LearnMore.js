@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
   },
   closeButton: {
     padding: '20px',
-    right: -1,
+    right: 0,
     position: 'absolute',
     color: '#333'
   }
