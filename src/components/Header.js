@@ -26,7 +26,6 @@ const Header = (props) => {
         <Typography className={classes.typographyStyles} color='inherit'>
           Occupancy Gym App
         </Typography>
-        <SpeedIcon />
       </Toolbar>
     </AppBar>
 )};
