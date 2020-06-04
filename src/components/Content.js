@@ -178,17 +178,18 @@ const sundayData = () => (
 );
 
 const capacityElement = darkMode => {
-    return (
-        <SimpleCard title="Live capacity" content={capacityDescription}>
-            <Grid container direction="row">
-                <Grid item xs={1} ms={2}></Grid>
-                <Grid item xs={10} ms={8}>
-                    <Capacity capacity={70} darkMode={darkMode}/>
-                </Grid>
-                <Grid item xs={1} ms={2}></Grid>
-            </Grid>
-        </SimpleCard>
-    )
+  const textColor = darkMode ? 'white' : 'black';
+  return (
+      <SimpleCard title="Live capacity" content={capacityDescription}>
+          <Grid container direction="row">
+              <Grid item xs={1} ms={2}></Grid>
+              <Grid item xs={10} ms={8}>
+                  <Capacity capacity={70} textColor={textColor}/>
+              </Grid>
+              <Grid item xs={1} ms={2}></Grid>
+          </Grid>
+      </SimpleCard>
+  )
 }
 
 const capacityDescription =

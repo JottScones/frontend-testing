@@ -9,7 +9,7 @@ const colorOfBar = capacity => (
 );
 
 const Capacity = (props) => {
-  const capacity = props.capacity;
+  const {capacity, textColor} = props;
 
   return (
     <div className='Capacity Chart'>
@@ -21,9 +21,11 @@ const Capacity = (props) => {
             data:[capacity, 100-capacity],
             /*If capacity is greater than 80 color is red*/
             backgroundColor:[colorOfBar(capacity), '#ddd'],
-            borderWidth: 1
+            borderWidth: 0,
+            hoverBackgroundColor:[colorOfBar(capacity), '#ddd']
           }],
-          text: `${capacity}%`
+          text: `${capacity}%`,
+          textColor: textColor
         }}
         options={{
           responsive: true,
@@ -32,7 +34,7 @@ const Capacity = (props) => {
           legend: {
               display: false
           },
-          tooltip: {
+          tooltips: {
               enabled: false
           },
           cutoutPercentage: 90
@@ -58,6 +60,7 @@ Chart.helpers.extend(Chart.controllers.doughnut.prototype, {
 
     var fontSize = (height / 114).toFixed(2);
     ctx.font = fontSize + "em roboto";
+    ctx.fillStyle = chart.config.data.textColor;
     ctx.textBaseline = "middle";
 
     var text = chart.config.data.text,
