@@ -199,12 +199,12 @@ const capacityDescription =
 
 const barChartElement = (dayNumber, setDayNumber) => {
     return (
-        <SimpleCard title="Weekly view" content={barChartDescription}>
+        <SimpleCard title="Historic capacity data" content={barChartDescription}>
             <Grid container direction="row">
                 <Grid item xs={1} ms={2}></Grid>
                 <Grid item xs={10} ms={8}>
-                    <WeekGraph barData={barData()} setDayNumber={setDayNumber}/>
-                    <DayGraph barData={daysData()[dayNumber]} days={days()[dayNumber]} dayNumber={dayNumber}/>
+                  <WeekGraph barData={barData()} setDayNumber={setDayNumber}/>
+                  <DayGraph barData={daysData()[dayNumber]} days={days()[dayNumber]} dayNumber={dayNumber}/>
                 </Grid>
                 <Grid item xs={1} ms={2}></Grid>
             </Grid>

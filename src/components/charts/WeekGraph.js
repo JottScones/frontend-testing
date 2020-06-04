@@ -18,6 +18,10 @@ const WeekGraph = (props) => {
           },
           scales: {
             yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Capacity %'
+              },
               ticks: {
                 beginAtZero: true
               }

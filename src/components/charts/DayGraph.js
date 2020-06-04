@@ -35,6 +35,10 @@ const DayGraph = (props) => {
                 }
               }],
               yAxes: [{
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Capacity %'
+                },
                 ticks: {
                   beginAtZero: true
                 }
