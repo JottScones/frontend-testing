@@ -1,5 +1,5 @@
 import React from 'react';
-import {Drawer} from '@material-ui/core/';
+import {Drawer, Switch} from '@material-ui/core/';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -7,15 +7,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import InfoIcon from '@material-ui/icons/Info';
-import NewReleasesIcon from '@material-ui/icons/NewReleases';
-import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+import ViewCarouselIcon from '@material-ui/icons/ViewCarousel';
+
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
-const drawer = () => {
-  /*To change/add options ensure that you match the index with the icons*/
-  let pages = ['Gym data', 'About', 'Covid-19 Advice', 'Contact us'];
-  let icons = [<EqualizerIcon/>, <InfoIcon/>,<NewReleasesIcon/>, <PermContactCalendarIcon/>];
+const drawer = (darkMode, setDarkMode, setWindowNo) => {
   return (
   <div>
     <Divider />
@@ -24,21 +22,42 @@ const drawer = () => {
         <ListItemText primary={"Sign up/in"}/>
         <ListItemIcon><LockOpenIcon/></ListItemIcon>
       </ListItem>
+
       <Divider />
-      {pages.map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>{icons[index]}</ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItem>
-      ))}
+
+      <ListItem button key={"Gym data"} onClick={() => setWindowNo(0)}>
+        <ListItemIcon><EqualizerIcon/></ListItemIcon>
+        <ListItemText primary={"Gym data"}/>
+      </ListItem>
+
+      <ListItem button key={"Gym Updates"} onClick={() => setWindowNo(1)}>
+        <ListItemIcon><InfoIcon/></ListItemIcon>
+        <ListItemText primary={"Gym Updates"}/>
+      </ListItem>
+
+      <ListItem button key={"Exercises"} onClick={() => setWindowNo(2)}>
+        <ListItemIcon><ViewCarouselIcon/></ListItemIcon>
+        <ListItemText primary={"Exercises"}/>
+      </ListItem>
+
+      <Divider />
+
+      <ListItem>
+        <FormControlLabel
+          control= {<Switch  checked={darkMode} onChange={() => setDarkMode(prevMode => !prevMode)}/>}
+          label="Dark Mode"
+        />
+      </ListItem>
     </List>
     <Divider />
+
+
   </div>
 )};
 
 const MenuDrawer = (props) => (
   <Drawer anchor="left" variant="temporary" open={props.menuOpen} onClose={() => props.setMenuOpen(false)}>
-    {drawer()}
+    {drawer(props.darkMode, props.setDarkMode, props.setWindowNo)}
   </Drawer>
 );
 

@@ -11,7 +11,7 @@ const DayGraph = (props) => {
             title: {
               display: true,
               text: props.days + " average",
-              fontSize: 20
+              fontSize: 15
             },
             legend: {
               display:false
