@@ -28,7 +28,7 @@ function App() {
 	        <Grid item container>
 	          <Grid item xs={false} sm={2} lg={3}/>
 	          <Grid item xs={12} sm={8} lg={6}>
-	            <Content windowNo={windowNo}/>
+	            <Content windowNo={windowNo} darkMode={darkMode}/>
 	          </Grid>
 	          <Grid item xs={false} sm={2} lg={3}/>
 	        </Grid>

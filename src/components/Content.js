@@ -9,9 +9,9 @@ import Post from './Post'
 import IconLabelTabs from "./IconLabelTabs";
 import ExerciseDir from './ExerciseDir';
 
-function content(dayNumber, setDayNumber, windowNo) {
+function content(dayNumber, setDayNumber, windowNo, darkMode) {
     if (windowNo === 0) {
-        return windowNo0(dayNumber, setDayNumber);
+        return windowNo0(dayNumber, setDayNumber, darkMode);
     } else if (windowNo === 1) {
         return windowNo1();
     } else if (windowNo === 2) {
@@ -19,14 +19,14 @@ function content(dayNumber, setDayNumber, windowNo) {
     }
 }
 
-const windowNo0 = (dayNumber, setDayNumber) => (
+const windowNo0 = (dayNumber, setDayNumber, darkMode) => (
     <div style={{paddingBottom: '250px'}}>
         <Grid container direction="column" spacing={2}>
             <Grid item>
                 <GymSelect/>
             </Grid>
             <Grid item>
-                <IconLabelTabs elementsToDisplay={[capacityElement(), barChartElement(dayNumber, setDayNumber)]}/>
+                <IconLabelTabs elementsToDisplay={[capacityElement(darkMode), barChartElement(dayNumber, setDayNumber, darkMode)]}/>
             </Grid>
         </Grid>
     </div>
@@ -177,13 +177,13 @@ const sundayData = () => (
     }
 );
 
-const capacityElement = () => {
+const capacityElement = darkMode => {
     return (
         <SimpleCard title="Live capacity" content={capacityDescription}>
             <Grid container direction="row">
                 <Grid item xs={1} ms={2}></Grid>
                 <Grid item xs={10} ms={8}>
-                    <Capacity capacity={70}/>
+                    <Capacity capacity={70} darkMode={darkMode}/>
                 </Grid>
                 <Grid item xs={1} ms={2}></Grid>
             </Grid>
@@ -197,19 +197,22 @@ const capacityDescription =
   This data is sourced from physical counts provided by the gyms.`
 
 
-const barChartElement = (dayNumber, setDayNumber) => {
-    return (
-        <SimpleCard title="Historic capacity data" content={barChartDescription}>
-            <Grid container direction="row">
-                <Grid item xs={1} ms={2}></Grid>
-                <Grid item xs={10} ms={8}>
-                  <WeekGraph barData={barData()} setDayNumber={setDayNumber}/>
-                  <DayGraph barData={daysData()[dayNumber]} days={days()[dayNumber]} dayNumber={dayNumber}/>
-                </Grid>
-                <Grid item xs={1} ms={2}></Grid>
-            </Grid>
-        </SimpleCard>
-    )
+const barChartElement = (dayNumber, setDayNumber, darkMode) => {
+  const textColor = darkMode ? 'white' : 'black';
+  const gridColor = darkMode ? '#777' : '#ddd';
+
+  return (
+      <SimpleCard title="Historic capacity data" content={barChartDescription}>
+          <Grid container direction="row">
+              <Grid item xs={1} ms={2}></Grid>
+              <Grid item xs={10} ms={8}>
+                <WeekGraph barData={barData()} setDayNumber={setDayNumber} textColor={textColor} gridColor={gridColor}/>
+                <DayGraph barData={daysData()[dayNumber]} days={days()[dayNumber]} dayNumber={dayNumber} textColor={textColor} gridColor={gridColor}/>
+              </Grid>
+              <Grid item xs={1} ms={2}></Grid>
+          </Grid>
+      </SimpleCard>
+  )
 }
 
 const barChartDescription =
@@ -224,5 +227,5 @@ const days = () => ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fri
 
 export default function Content(props) {
     const [dayNumber, setDayNumber] = React.useState(new Date().getDay());
-    return content(dayNumber, setDayNumber, props.windowNo);
+    return content(dayNumber, setDayNumber, props.windowNo, props.darkMode);
 }

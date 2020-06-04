@@ -2,6 +2,7 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 
 const WeekGraph = (props) => {
+  const {textColor, gridColor} = props;
   return (
     <div className="Bar Chart">
       <Bar
@@ -11,7 +12,8 @@ const WeekGraph = (props) => {
           title: {
             display: true,
             text: "Average capacity by day",
-            fontSize: 25
+            fontSize: 25,
+            fontColor: textColor
           },
           legend: {
             display: false
@@ -20,10 +22,25 @@ const WeekGraph = (props) => {
             yAxes: [{
               scaleLabel: {
                 display: true,
-                labelString: 'Capacity %'
+                labelString: 'Capacity %',
+                fontColor: textColor
               },
               ticks: {
-                beginAtZero: true
+                beginAtZero: true,
+                fontColor: textColor
+              },
+              gridLines: {
+                display: true,
+                color: gridColor
+              }
+            }],
+            xAxes: [{
+              ticks: {
+                fontColor: textColor
+              },
+              gridLines: {
+                display: true,
+                color: gridColor
               }
             }]
           }
