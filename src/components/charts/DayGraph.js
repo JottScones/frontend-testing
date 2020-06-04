@@ -10,7 +10,7 @@ const DayGraph = (props) => {
           options={{
             title: {
               display: true,
-              text: props.days + " average",
+              text: (props.dayNumber === (new Date().getDay()) ? "Today" : props.days) + "'s average",
               fontSize: 15
             },
             legend: {

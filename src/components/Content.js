@@ -204,7 +204,7 @@ const barChartElement = (dayNumber, setDayNumber) => {
                 <Grid item xs={1} ms={2}></Grid>
                 <Grid item xs={10} ms={8}>
                     <WeekGraph barData={barData()} setDayNumber={setDayNumber}/>
-                    <DayGraph barData={daysData()[dayNumber]} days={days()[dayNumber]}/>
+                    <DayGraph barData={daysData()[dayNumber]} days={days()[dayNumber]} dayNumber={dayNumber}/>
                 </Grid>
                 <Grid item xs={1} ms={2}></Grid>
             </Grid>
@@ -219,10 +219,10 @@ const barChartDescription =
 const updatesDescription =
     `Recent updates from your selected gym.`
 
-const daysData = () => [mondayData(), tuesdayData(), wednesdayData(), thursdayData(), fridayData(), saturdayData(), sundayData()];
-const days = () => ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const daysData = () => [sundayData(), mondayData(), tuesdayData(), wednesdayData(), thursdayData(), fridayData(), saturdayData()];
+const days = () => ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export default function Content(props) {
-    const [dayNumber, setDayNumber] = React.useState("");
+    const [dayNumber, setDayNumber] = React.useState(new Date().getDay());
     return content(dayNumber, setDayNumber, props.windowNo);
 }

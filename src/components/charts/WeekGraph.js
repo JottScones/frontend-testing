@@ -26,7 +26,7 @@ const WeekGraph = (props) => {
         }}
         onElementsClick={(elems) => {
           if (elems[0]) {
-            let selectedIndex = elems[0]._index;
+            let selectedIndex = (elems[0]._index + 1) % 7;
             props.setDayNumber(selectedIndex);
           }
         }}
