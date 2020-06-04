@@ -1,6 +1,5 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
-import SpeedIcon from '@material-ui/icons/Speed';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuDrawer from './MenuDrawer';
 import {makeStyles} from '@material-ui/styles';
