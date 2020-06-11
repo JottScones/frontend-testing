@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Grid, Paper} from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+import Welcome from './components/Welcome';
 
 import './style.css';
 
@@ -19,22 +20,7 @@ function App() {
 	});
 
 	return (
-		<ThemeProvider theme={theme}>
-			<Paper>
-				<Grid container direction="column">
-	        <Grid item>
-	          <Header darkMode={darkMode} setDarkMode={setDarkMode} setWindowNo={setWindowNo}/>
-	        </Grid>
-	        <Grid item container>
-	          <Grid item xs={false} sm={2} lg={3}/>
-	          <Grid item xs={12} sm={8} lg={6}>
-	            <Content windowNo={windowNo} darkMode={darkMode}/>
-	          </Grid>
-	          <Grid item xs={false} sm={2} lg={3}/>
-	        </Grid>
-	      </Grid>
-			</Paper>
-		</ThemeProvider>
+		<Welcome/>
 		);
 }
 

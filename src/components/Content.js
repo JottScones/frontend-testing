@@ -8,6 +8,7 @@ import DayGraph from "./charts/DayGraph";
 import Post from './Post'
 import IconLabelTabs from "./IconLabelTabs";
 import ExerciseDir from './ExerciseDir';
+import Welcome from './Welcome';
 
 function content(dayNumber, setDayNumber, windowNo, darkMode) {
     if (windowNo === 0) {
@@ -23,10 +24,10 @@ const windowNo0 = (dayNumber, setDayNumber, darkMode) => (
     <div style={{paddingBottom: '250px'}}>
         <Grid container direction="column" spacing={2}>
             <Grid item>
-                <GymSelect/>
+              <GymSelect/>
             </Grid>
             <Grid item>
-                <IconLabelTabs elementsToDisplay={[capacityElement(darkMode), barChartElement(dayNumber, setDayNumber, darkMode)]}/>
+              <IconLabelTabs elementsToDisplay={[capacityElement(darkMode), barChartElement(dayNumber, setDayNumber, darkMode)]}/>
             </Grid>
         </Grid>
     </div>
@@ -35,6 +36,9 @@ const windowNo0 = (dayNumber, setDayNumber, darkMode) => (
 const windowNo1 = () => (
     <div style={{paddingTop: '30px', paddingBottom: '150px'}}>
         <Grid container direction="column" spacing={2}>
+          <Grid item>
+            <GymSelect/>
+          </Grid>
             <Grid item>
                 <SimpleCard title="Updates From Gym" content={updatesDescription}>
 
@@ -227,6 +231,6 @@ const daysData = () => [sundayData(), mondayData(), tuesdayData(), wednesdayData
 const days = () => ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export default function Content(props) {
-    const [dayNumber, setDayNumber] = React.useState(new Date().getDay());
-    return content(dayNumber, setDayNumber, props.windowNo, props.darkMode);
+
+  return (<Welcome/>);
 }
